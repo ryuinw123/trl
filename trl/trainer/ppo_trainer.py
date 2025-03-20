@@ -880,7 +880,7 @@ class PPOTrainer(BaseTrainer):
         # Update the KL control - multiply the batch_size by the number of processes
         self.kl_ctl.update(
             stats["objective/kl"],
-            self.config.batch_size * self.accelerator.num_processes,
+            bs * self.accelerator.num_processes,
         )
 
         # Log the total ppo time
